@@ -19,14 +19,18 @@ function CountryPage({ country }) {
     languages = Object.values(country.languages);
     currencies = Object.values(country.currencies);
   }
-  const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+  const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
   const countryBorders = country.borders;
   const getCountryISO2 = require("country-iso-3-to-2");
   const fUllNameBorderCountrys = [];
   if (countryBorders) {
-    countryBorders.forEach(country => {
-      fUllNameBorderCountrys.push(regionNames.of(getCountryISO2(country)));
-    });
+    try {
+      countryBorders.forEach(country => {
+        fUllNameBorderCountrys.push(regionNames.of(getCountryISO2(country)));
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
