@@ -13,8 +13,12 @@ import classes from "../styles/Countrypage.module.css";
 
 function CountryPage({ country }) {
   const { darkMode } = useContext(ThemeContext);
-  const languages = Object.values(country.languages);
-  const currencies = Object.values(country.currencies);
+  let languages;
+  let currencies;
+  if (country.languages) {
+    languages = Object.values(country.languages);
+    currencies = Object.values(country.currencies);
+  }
   const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
   const countryBorders = country.borders;
   const getCountryISO2 = require("country-iso-3-to-2");
@@ -80,22 +84,26 @@ function CountryPage({ country }) {
                   <span>Top Level Domain: </span>
                   {country.tld}
                 </p>
-                <p>
-                  <span>Currencies: </span>
-                  {currencies.map((currencie, index) => {
-                    return index === currencies.length - 1
-                      ? `${currencie.name}`
-                      : `${currencie.name}, `;
-                  })}
-                </p>
-                <p>
-                  <span>Languages: </span>
-                  {languages.map((language, index) => {
-                    return index === languages.length - 1
-                      ? `${language}`
-                      : `${language}, `;
-                  })}
-                </p>
+                {currencies && (
+                  <p>
+                    <span>Currencies: </span>
+                    {currencies.map((currencie, index) => {
+                      return index === currencies.length - 1
+                        ? `${currencie.name}`
+                        : `${currencie.name}, `;
+                    })}
+                  </p>
+                )}
+                {languages && (
+                  <p>
+                    <span>Languages: </span>
+                    {languages.map((language, index) => {
+                      return index === languages.length - 1
+                        ? `${language}`
+                        : `${language}, `;
+                    })}
+                  </p>
+                )}
               </div>
             </div>
 

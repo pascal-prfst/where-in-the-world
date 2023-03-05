@@ -15,6 +15,8 @@ function HomePage(props) {
 
   const { darkMode } = useContext(ThemeContext);
 
+  console.log(countries);
+
   const options = [
     { value: "all", label: "All" },
     { value: "Africa", label: "Africa" },
