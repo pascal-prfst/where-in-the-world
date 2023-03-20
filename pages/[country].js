@@ -2,11 +2,7 @@ import { Fragment, useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import Link from "next/link";
 
-import {
-  changeNamesToSlug,
-  getAllCountrys,
-  getCountryBySlug,
-} from "@/helper/helper-functions";
+import { changeNamesToSlug, getAllCountrys, getCountryBySlug } from "@/helper/helper-functions";
 import ThemeContext from "@/context/theme-context";
 import classes from "../styles/Countrypage.module.css";
 
@@ -34,6 +30,10 @@ function CountryPage({ country }) {
     }
   }
 
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Fragment>
       <section
@@ -46,9 +46,7 @@ function CountryPage({ country }) {
           <button
             type="button"
             className={
-              darkMode
-                ? `${classes.back_btn} ${classes.back_btn_dark}`
-                : `${classes.back_btn}`
+              darkMode ? `${classes.back_btn} ${classes.back_btn_dark}` : `${classes.back_btn}`
             }>
             <span>
               <BiArrowBack className={classes.btn_icon} /> Back
@@ -103,9 +101,7 @@ function CountryPage({ country }) {
                   <p>
                     <span>Languages: </span>
                     {languages.map((language, index) => {
-                      return index === languages.length - 1
-                        ? `${language}`
-                        : `${language}, `;
+                      return index === languages.length - 1 ? `${language}` : `${language}, `;
                     })}
                   </p>
                 )}
@@ -158,7 +154,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
