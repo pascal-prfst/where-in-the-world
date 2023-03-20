@@ -1,12 +1,14 @@
 import { Fragment, useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { changeNamesToSlug, getAllCountrys, getCountryBySlug } from "@/helper/helper-functions";
 import ThemeContext from "@/context/theme-context";
 import classes from "../styles/Countrypage.module.css";
 
 function CountryPage({ country }) {
+  const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
   let languages;
   let currencies;
