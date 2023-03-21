@@ -10,16 +10,13 @@ import classes from "../styles/Countrypage.module.css";
 function CountryPage({ country }) {
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
-  /* let languages;
-  if (country.languages) {
-    languages = Object.values(country.languages);
-  } */
-  /* const currencies = Object.values(country.currencies); */
+  let languages = Object.values(country.languages);
+  const currencies = Object.values(country.currencies);
   const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
   const countryBorders = country.borders;
   const getCountryISO2 = require("country-iso-3-to-2");
   const fUllNameBorderCountrys = [];
-  if (countryBorders) {
+  if (countryBorders.length !== 0) {
     try {
       countryBorders.forEach(country => {
         fUllNameBorderCountrys.push(regionNames.of(getCountryISO2(country)));
@@ -32,6 +29,8 @@ function CountryPage({ country }) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+
+  console.log(country.borders);
 
   return (
     <Fragment>
@@ -107,7 +106,7 @@ function CountryPage({ country }) {
               </div>
             </div>
 
-            {countryBorders && (
+            {countryBorders.length !== 0 && (
               <Fragment>
                 <h2>Border Countries</h2>
                 <div className={classes.border_countrys_container}>
