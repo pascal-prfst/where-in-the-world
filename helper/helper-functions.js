@@ -13,9 +13,9 @@ export async function getAllCountrys() {
       subregion: country.subregion ? country.subregion : "Unknown",
       capital: country.capital ? country.capital : "Unknown",
       tld: country.tld ? country.tld : "Unknown",
-      languages: country.languages ? country.languages : [],
-      currencies: country.currencies ? country.currencies : [],
-      borders: country.borders ? country.borders : [],
+      languages: country.languages ? country.languages : ["Unknown"],
+      currencies: country.currencies ? country.currencies : ["Unknown"],
+      borders: country.borders ? country.borders : ["Unknown"],
     };
   });
 
