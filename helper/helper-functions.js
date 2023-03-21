@@ -1,11 +1,14 @@
+import axios from "axios";
+
 // fetch the data from the api and reduce it down to to all the necessary information
+
 export async function getAllCountrys() {
-  const response = await fetch("https://restcountries.com/v3.1/all");
-  const data = await response.json();
+  /* const response = await fetch("https://restcountries.com/v3.1/all");
+  const data = await response.json(); */
 
-  /* const response = await axios.get("https://restcountries.com/v3.1/all"); */
+  const response = await axios.get("https://restcountries.com/v3.1/all");
 
-  const countries = data.map(country => {
+  const countries = response.data.map(country => {
     return {
       flags: country.flags.png,
       name: country.name,
