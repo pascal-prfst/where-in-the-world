@@ -10,10 +10,10 @@ import classes from "../styles/Countrypage.module.css";
 function CountryPage({ country }) {
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
-  let languages;
+  /* let languages;
   if (country.languages) {
     languages = Object.values(country.languages);
-  }
+  } */
   /* const currencies = Object.values(country.currencies); */
   const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
   const countryBorders = country.borders;
@@ -96,14 +96,14 @@ function CountryPage({ country }) {
                     })}
                   </p>
                 )} */}
-                {languages && (
+                {/* {languages && (
                   <p>
                     <span>Languages: </span>
                     {languages.map((language, index) => {
                       return index === languages.length - 1 ? `${language}` : `${language}, `;
                     })}
                   </p>
-                )}
+                )} */}
               </div>
             </div>
 
