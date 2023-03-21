@@ -11,10 +11,7 @@ function CountryPage({ country }) {
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
   let languages;
-  let currencies;
-  if (country.currencies) {
-    currencies = Object.values(country.currencies);
-  }
+  const currencies = Object.values(country.currencies);
   if (country.languages) {
     languages = Object.values(country.languages);
   }
