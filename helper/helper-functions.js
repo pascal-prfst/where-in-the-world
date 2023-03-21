@@ -1,11 +1,7 @@
 import axios from "axios";
 
 // fetch the data from the api and reduce it down to to all the necessary information
-
 export async function getAllCountrys() {
-  /* const response = await fetch("https://restcountries.com/v3.1/all");
-  const data = await response.json(); */
-
   const response = await axios.get("https://restcountries.com/v3.1/all");
 
   const countries = response.data.map(country => {
@@ -18,7 +14,7 @@ export async function getAllCountrys() {
       capital: country.capital ? country.capital : null,
       tld: country.tld ? country.tld : null,
       languages: country.languages ? country.languages : null,
-      currencies: country.currencies ? country.currencies : { name: "Unkown" },
+      currencies: country.currencies ? country.currencies : { name: "Unknown" },
       borders: country.borders ? country.borders : null,
     };
   });

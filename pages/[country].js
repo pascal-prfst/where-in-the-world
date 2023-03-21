@@ -11,10 +11,10 @@ function CountryPage({ country }) {
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
   let languages;
-  const currencies = Object.values(country.currencies);
   if (country.languages) {
     languages = Object.values(country.languages);
   }
+  /* const currencies = Object.values(country.currencies); */
   const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
   const countryBorders = country.borders;
   const getCountryISO2 = require("country-iso-3-to-2");
@@ -86,7 +86,7 @@ function CountryPage({ country }) {
                   <span>Top Level Domain: </span>
                   {country.tld}
                 </p>
-                {currencies.length !== 0 && (
+                {/* {currencies.length !== 0 && (
                   <p>
                     <span>Currencies: </span>
                     {currencies.map((currencie, index) => {
@@ -95,7 +95,7 @@ function CountryPage({ country }) {
                         : `${currencie.name}, `;
                     })}
                   </p>
-                )}
+                )} */}
                 {languages && (
                   <p>
                     <span>Languages: </span>
