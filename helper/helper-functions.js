@@ -10,12 +10,12 @@ export async function getAllCountrys() {
       name: country.name,
       population: country.population,
       region: country.region,
-      subregion: country.subregion ? country.subregion : null,
-      capital: country.capital ? country.capital : null,
-      tld: country.tld ? country.tld : null,
-      languages: country.languages ? country.languages : null,
-      currencies: country.currencies ? country.currencies : { name: "Unknown" },
-      borders: country.borders ? country.borders : null,
+      subregion: country.subregion ? country.subregion : "Unknown",
+      capital: country.capital ? country.capital : "Unknown",
+      tld: country.tld ? country.tld : "Unknown",
+      languages: country.languages ? country.languages : [],
+      currencies: country.currencies ? country.currencies : [],
+      borders: country.borders ? country.borders : [],
     };
   });
 
