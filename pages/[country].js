@@ -89,7 +89,7 @@ function CountryPage({ country }) {
                   <span>Top Level Domain: </span>
                   {country.tld}
                 </p>
-                {currencies && (
+                {currencies.length !== 0 && (
                   <p>
                     <span>Currencies: </span>
                     {currencies.map((currencie, index) => {

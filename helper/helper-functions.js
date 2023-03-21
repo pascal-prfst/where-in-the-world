@@ -18,7 +18,7 @@ export async function getAllCountrys() {
       capital: country.capital ? country.capital : null,
       tld: country.tld ? country.tld : null,
       languages: country.languages ? country.languages : null,
-      currencies: country.currencies ? country.currencies : null,
+      currencies: country.currencies ? country.currencies : { name: "Unkown" },
       borders: country.borders ? country.borders : null,
     };
   });
