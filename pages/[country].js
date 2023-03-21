@@ -10,7 +10,7 @@ import classes from "../styles/Countrypage.module.css";
 function CountryPage({ country }) {
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
-  let languages = Object.values(country.languages);
+  /*  const languages = Object.values(country.languages); */
   const currencies = Object.values(country.currencies);
   const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
   const countryBorders = country.borders;
