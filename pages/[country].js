@@ -8,29 +8,9 @@ import ThemeContext from "@/context/theme-context";
 import classes from "../styles/Countrypage.module.css";
 
 function CountryPage({ country }) {
-  const router = useRouter();
-  const { darkMode } = useContext(ThemeContext);
-  /*  const languages = Object.values(country.languages); */
-  const currencies = Object.values(country.currencies);
-  const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
-  const countryBorders = country.borders;
-  const getCountryISO2 = require("country-iso-3-to-2");
-  const fUllNameBorderCountrys = [];
-  if (countryBorders.length !== 0) {
-    try {
-      countryBorders.forEach(country => {
-        fUllNameBorderCountrys.push(regionNames.of(getCountryISO2(country)));
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-
-  console.log(country.borders);
 
   return (
     <Fragment>
@@ -85,47 +65,8 @@ function CountryPage({ country }) {
                   <span>Top Level Domain: </span>
                   {country.tld}
                 </p>
-                {/* {currencies.length !== 0 && (
-                  <p>
-                    <span>Currencies: </span>
-                    {currencies.map((currencie, index) => {
-                      return index === currencies.length - 1
-                        ? `${currencie.name}`
-                        : `${currencie.name}, `;
-                    })}
-                  </p>
-                )} */}
-                {/* {languages && (
-                  <p>
-                    <span>Languages: </span>
-                    {languages.map((language, index) => {
-                      return index === languages.length - 1 ? `${language}` : `${language}, `;
-                    })}
-                  </p>
-                )} */}
               </div>
             </div>
-
-            {countryBorders.length !== 0 && (
-              <Fragment>
-                <h2>Border Countries</h2>
-                <div className={classes.border_countrys_container}>
-                  {fUllNameBorderCountrys.map((country, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className={
-                          darkMode
-                            ? `${classes.border_country} ${classes.border_country_dark}`
-                            : classes.border_country
-                        }>
-                        {country}
-                      </div>
-                    );
-                  })}
-                </div>
-              </Fragment>
-            )}
           </div>
         </div>
       </section>
