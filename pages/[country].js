@@ -9,6 +9,8 @@ import classes from "../styles/Countrypage.module.css";
 function CountryPage({ country }) {
   const { darkMode } = useContext(ThemeContext);
 
+  console.log(country.flags);
+
   return (
     <Fragment>
       <section
@@ -29,9 +31,9 @@ function CountryPage({ country }) {
           </button>
         </Link>
         <div className={classes.responsive_container}>
-          <div className={classes.image_container}>
+          {/* <div className={classes.image_container}>
             <img src={country.flags} alt={country.name} />
-          </div>
+          </div> */}
           <div>
             <h1>{country.name.common}</h1>
             <div className={classes.content_container}>
