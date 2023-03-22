@@ -9,8 +9,6 @@ import classes from "../styles/Countrypage.module.css";
 function CountryPage({ country }) {
   const { darkMode } = useContext(ThemeContext);
 
-  console.log(country.flags);
-
   return (
     <Fragment>
       <section
