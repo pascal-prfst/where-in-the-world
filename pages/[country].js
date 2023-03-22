@@ -1,17 +1,12 @@
 import { Fragment, useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { changeNamesToSlug, getAllCountrys, getCountryBySlug } from "@/helper/helper-functions";
 import ThemeContext from "@/context/theme-context";
 import classes from "../styles/Countrypage.module.css";
 
 function CountryPage({ country }) {
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <Fragment>
       <section
