@@ -56,14 +56,10 @@ function HomePage(props) {
       <div className={classes.filter_options}>
         <div className={classes.input_container}>
           <AiOutlineSearch
-            className={
-              darkMode ? `${classes.icon} ${classes.icon_dark}` : `${classes.icon}`
-            }
+            className={darkMode ? `${classes.icon} ${classes.icon_dark}` : `${classes.icon}`}
           />
           <input
-            className={
-              darkMode ? `${classes.input} ${classes.input_dark}` : `${classes.input}`
-            }
+            className={darkMode ? `${classes.input} ${classes.input_dark}` : `${classes.input}`}
             placeholder="Search for a country..."
             value={input}
             onChange={handleOnChange}
@@ -76,6 +72,32 @@ function HomePage(props) {
           className={classes.select_options}
           options={options}
           placeholder="Filter by Region"
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              backgroundColor: darkMode ? "var(--dark-blue)" : "white",
+            }),
+            placeholder: (baseStyles, state) => ({
+              ...baseStyles,
+              color: darkMode ? "white" : "black",
+            }),
+            singleValue: (baseStyles, state) => ({
+              ...baseStyles,
+              color: darkMode ? "white" : "black",
+            }),
+            menuList: (baseStyles, state) => ({
+              ...baseStyles,
+              backgroundColor: darkMode ? "var(--dark-blue)" : "white",
+              color: darkMode ? "white" : "black",
+            }),
+            option: (baseStyles, state) => ({
+              ...baseStyles,
+              backgroundColor: "none",
+              "&:hover": {
+                backgroundColor: "var(--dark-bg)",
+              },
+            }),
+          }}
         />
       </div>
       <div className={classes.card_grid}>
