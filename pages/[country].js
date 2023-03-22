@@ -7,6 +7,8 @@ import ThemeContext from "@/context/theme-context";
 import classes from "../styles/Countrypage.module.css";
 
 function CountryPage({ country }) {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
     <Fragment>
       <section
