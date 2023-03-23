@@ -15,8 +15,6 @@ function CountryPage({ country }) {
     return <h1>Loading...</h1>;
   }
 
-  console.log(country.flags);
-
   return (
     <Fragment>
       <section
@@ -42,8 +40,39 @@ function CountryPage({ country }) {
           </div>
           <div className={classes.info_container}>
             <h1>{country.name.common}</h1>
+            <div className={classes.content}>
+              <p>
+                <span>Native name: </span>
+                {country.name.official}
+              </p>
+              <p>
+                <span>Population: </span>
+                {country.population.toLocaleString()}
+              </p>
+              <p>
+                <span>Region: </span>
+                {country.region}
+              </p>
+              <p>
+                <span>Sub Region: </span>
+                {country.subregion}
+              </p>
+              <p>
+                <span>Capital: </span>
+                {country.capital}
+              </p>
+            </div>
+
+            <div className={classes.content}>
+              <p>
+                <span>Top Level Domain: </span>
+                {country.tld}
+              </p>
+            </div>
           </div>
-          <div className={classes.border_countries_container}></div>
+          <div className={classes.border_countries_container}>
+            <p>Border Countries:</p>
+          </div>
         </div>
       </section>
     </Fragment>
