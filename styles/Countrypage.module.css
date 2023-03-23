@@ -96,22 +96,22 @@
 
 @media (min-width: 800px) {
   .countrypage_content_container {
-    padding: 5rem;
+    padding-top: 2rem;
   }
-  .responsive_container {
+
+  .back_btn {
+    margin-bottom: 6rem;
+  }
+  .content_container {
     display: flex;
     align-items: center;
   }
 
   .image_container {
-    width: 40%;
+    width: 34rem;
+    object-fit: contain;
+    height: 25rem;
     margin-right: 7rem;
-  }
-
-  .content_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5rem;
+    overflow: hidden;
   }
 }
