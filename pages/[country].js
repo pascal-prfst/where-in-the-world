@@ -11,12 +11,12 @@ function CountryPage({ country }) {
   const { darkMode } = useContext(ThemeContext);
   const router = useRouter();
 
-  const languages = Object.values(country.languages);
-  const currencies = Object.values(country.currencies);
-
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
+
+  const languages = Object.values(country.languages);
+  const currencies = Object.values(country.currencies);
 
   return (
     <Fragment>
