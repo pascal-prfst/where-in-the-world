@@ -22,16 +22,20 @@ html {
 }
 
 body {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
+  background-color: var(--light-mode-bg);
   display: flex;
   flex-direction: column;
-  background-color: var(--light-mode-bg);
 }
 
 .main-container {
+  min-height: 100%;
   padding: 1.25rem 1rem;
-  height: 100%;
+}
+
+#__next {
+  min-height: 100%;
 }
 
 .main-container-dark {

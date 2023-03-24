@@ -11,6 +11,9 @@ function CountryPage({ country }) {
   const { darkMode } = useContext(ThemeContext);
   const router = useRouter();
 
+  const languages = Object.values(country.languages);
+  const currencies = Object.values(country.currencies);
+
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
@@ -40,9 +43,10 @@ function CountryPage({ country }) {
           </div>
           <div className={classes.info_container}>
             <h1>{country.name.common}</h1>
+            {/* Left Content */}
             <div className={classes.content}>
               <p>
-                <span>Native name: </span>
+                <span>Official name: </span>
                 {country.name.official}
               </p>
               <p>
@@ -62,14 +66,33 @@ function CountryPage({ country }) {
                 {country.capital}
               </p>
             </div>
-
+            {/* Right Content */}
             <div className={classes.content}>
               <p>
                 <span>Top Level Domain: </span>
                 {country.tld}
               </p>
+              {currencies.length !== 0 && (
+                <p>
+                  <span>Currencies: </span>
+                  {currencies.map((currencie, index) => {
+                    return index === currencies.length - 1
+                      ? `${currencie.name}`
+                      : `${currencie.name}, `;
+                  })}
+                </p>
+              )}
+              {languages.length !== 0 && (
+                <p>
+                  <span>Languages: </span>
+                  {languages.map((language, index) => {
+                    return index === languages.length - 1 ? `${language}` : `${language}, `;
+                  })}
+                </p>
+              )}
             </div>
           </div>
+          {/* Border Countries */}
           <div className={classes.border_countries_container}>
             <p>Border Countries:</p>
           </div>
