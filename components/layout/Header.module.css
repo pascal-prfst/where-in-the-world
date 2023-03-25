@@ -34,7 +34,7 @@
   font-weight: 600;
 }
 
-@media (min-width: 820px) {
+@media (min-width: 600px) {
   .header {
     padding: 1.5rem 5rem;
   }

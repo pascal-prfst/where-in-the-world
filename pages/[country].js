@@ -17,6 +17,19 @@ function CountryPage({ country }) {
 
   const languages = Object.values(country.languages);
   const currencies = Object.values(country.currencies);
+  const regionNames = new Intl.DisplayNames(["en", "SR"], { type: "region" });
+  const countryBorders = country.borders;
+  const getCountryISO2 = require("country-iso-3-to-2");
+  const fUllNameBorderCountrys = [];
+  if (countryBorders.length !== 0) {
+    try {
+      countryBorders.forEach(country => {
+        fUllNameBorderCountrys.push(regionNames.of(getCountryISO2(country)));
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Fragment>
@@ -91,10 +104,26 @@ function CountryPage({ country }) {
                 </p>
               )}
             </div>
-          </div>
-          {/* Border Countries */}
-          <div className={classes.border_countries_container}>
-            <p>Border Countries:</p>
+            {countryBorders.length !== 0 && (
+              <Fragment>
+                <h2 className={classes.border_headline}>Border Countries</h2>
+                <div className={classes.border_countrys_container}>
+                  {fUllNameBorderCountrys.map((country, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className={
+                          darkMode
+                            ? `${classes.border_country} ${classes.border_country_dark}`
+                            : classes.border_country
+                        }>
+                        {country}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Fragment>
+            )}
           </div>
         </div>
       </section>
