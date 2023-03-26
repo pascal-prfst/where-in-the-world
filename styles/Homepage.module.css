@@ -53,6 +53,13 @@
   gap: 2.5rem;
 }
 
+.notFound {
+  width: 100%;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 @media (min-width: 820px) {
   .card_grid {
     justify-content: space-between;

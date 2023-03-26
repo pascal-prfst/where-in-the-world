@@ -101,6 +101,11 @@ function HomePage(props) {
         />
       </div>
       <div className={classes.card_grid}>
+        {countries.length === 0 && (
+          <div className={classes.notFound}>
+            <p>Country not found...</p>
+          </div>
+        )}
         {countries.map(country => {
           return (
             <Card

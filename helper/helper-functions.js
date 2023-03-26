@@ -20,17 +20,6 @@ export async function getAllCountrys() {
   });
 
   return countries;
-
-  // remove countries with missing informations
-  /* const filteredCountries = [];
-
-  countries.forEach(country => {
-    if (country.population !== 0 || country.capital || country.currencies) {
-      filteredCountries.push(country);
-    }
-  });
-
-  return filteredCountries; */
 }
 
 // find the country by the slug(name convertet to a string without whitespace and lowercase letters)
