@@ -8,10 +8,7 @@ function Header() {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   return (
-    <header
-      className={
-        darkMode ? `${classes.header} ${classes.header_dark}` : `${classes.header}`
-      }>
+    <header className={darkMode ? `${classes.header} ${classes.header_dark}` : `${classes.header}`}>
       <h1>Where in the world?</h1>
       <div className={classes.theme_container} onClick={toggleDarkMode}>
         {darkMode ? (
